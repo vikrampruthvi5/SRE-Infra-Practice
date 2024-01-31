@@ -1,6 +1,8 @@
 terraform {
-    backend "local" {
-      path = "./tfstate_files/terraform.tfstate"
+    backend "s3" {
+      bucket = "pv-terraform-tfstate-files"
+      key = "sre-infra-project/terraform.tfstate"
+      region = "us-east-1"
     }
   required_providers {
     aws = {
